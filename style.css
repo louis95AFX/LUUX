@@ -1,0 +1,546 @@
+/* Color Palette: 
+   --color-dark: #1a1a1a; (Nearly Black)
+   --color-light: #ffffff; (White)
+   --color-accent: #f5f4e3; (Soft, Luxurious Beige/Off-White from your image)
+*/
+
+:root {
+    --color-dark: #1a1a1a;
+    --color-light: #ffffff;
+    --color-accent: #f5f4e3; 
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Roboto', sans-serif;
+}
+
+/* Base Styles & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, .logo, .vision-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent); /* Subtle hover color */
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-light);
+}
+
+.logo {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    margin: 0 15px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-icons i {
+    font-size: 1.1rem;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.nav-icons i:hover {
+    transform: scale(1.1);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.hero-image-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0; /* Placeholder color */
+    background-image: url('https://via.placeholder.com/1920x800/e0e0e0/505050?text=LUXURY+HANDBAG');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8; 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.7); /* Subtle white box over image */
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.1;
+}
+
+.cta-button {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+/* --- Vision Section (The Beige Box) --- */
+.vision-section {
+    background-color: var(--color-accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 60px;
+    margin-bottom: 80px;
+}
+
+.vision-content {
+    max-width: 450px;
+    margin-right: 80px;
+}
+
+.vision-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+}
+
+.vision-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.learn-more {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.vision-image-placeholder {
+    width: 400px;
+    height: 400px;
+    background-color: #d8d6c7; /* Darker beige placeholder */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-sans);
+    color: #555;
+}
+
+/* --- Featured Products --- */
+.featured-section {
+    text-align: center;
+    padding: 0 60px 100px;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.product-card {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.product-image-placeholder {
+    width: 100%;
+    padding-top: 100%; /* Creates a square aspect ratio */
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+    /* Placeholder for product specific images */
+    background-image: url('https://via.placeholder.com/400x400/f0f0f0/333333?text=Product+Image');
+    background-size: cover;
+    background-position: center;
+}
+
+.product-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.view-details-btn {
+    background: none;
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    padding: 8px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.product-card:hover .view-details-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+.product-card:hover .product-image-placeholder {
+    opacity: 0.85;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 60px 60px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-col a {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+.footer-col a:hover {
+    color: var(--color-light);
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-light);
+}
+
+.newsletter button {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 250px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--color-accent);
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #aaa;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+.product-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.05);
+}
+.vision-image {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.vision-img {
+  width: 250px; /* smaller fixed size */
+  height: auto;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.vision-img:hover {
+  transform: scale(1.05);
+}
+
+.vision-caption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+}
+/* --- Founders/About Us Section Styling --- */
+
+.founders-section {
+    padding: 100px 60px;
+    text-align: center;
+    background-color: var(--color-light); 
+    margin-bottom: 80px;
+}
+
+.founders-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.founder-card {
+    flex: 0 0 45%; 
+    text-align: center;
+}
+
+.founder-photo-placeholder {
+    width: 250px;
+    height: 300px; 
+    background-color: #f0f0f0; 
+    margin: 0 auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.founder-photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.founder-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.founder-title {
+    font-size: 0.9rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.founder-bio {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.8;
+}
+/* --- Collection Page Specific Styles --- */
+
+.collection-hero {
+    text-align: center;
+    padding: 100px 60px 50px;
+    background-color: var(--color-accent); /* Use beige accent for a soft introduction */
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.collection-intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.full-product-grid {
+    padding: 80px 60px;
+}
+
+
+/* New: Add to Cart button style */
+.add-to-cart-btn {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border: 1px solid var(--color-dark);
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    transform: translateY(-2px);
+}
+
+/* Ensure the button is visible on the collection page immediately */
+.collection-layout .product-card .add-to-cart-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Hide the 'View Details' button from the index page's featured grid if we switch to 'Add to Cart' */
+.view-details-btn {
+    display: none; /* Hide the old button if using the new one */
+}
+/* --- Featured Products Styling (Index Page) --- */
+
+.product-card {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* Reset padding-bottom hack used previously, we'll move the aspect ratio to .product-image */
+    padding-bottom: 0; 
+    height: auto;
+}
+
+.product-image {
+    /* Create a square aspect ratio using padding-bottom on the container */
+    width: 100%;
+    padding-bottom: 100%; /* Makes the container perfectly square (1:1 ratio) */
+    position: relative; /* Essential for absolute positioning of the img tag inside */
+    margin-bottom: 20px; /* Space between the image and the text below */
+    overflow: hidden;
+}
+
+.product-image img {
+    /* Position the image absolutely to cover the square container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Key for luxury: forces the image to fill the container, cropping if necessary */
+    object-fit: cover; 
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .product-image img {
+    opacity: 0.85; /* Subtle hover effect on the image */
+}
+/* --- Collection Page Product Grid Layout --- */
+
+.full-product-grid {
+    padding: 80px 60px;
+}
+
+.product-grid.collection-layout {
+    /* Override the default flex layout for a clean, consistent grid */
+    display: grid;
+    /* Use 4 equal columns for a dedicated collection page */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+}
+
+/* Ensure product cards in the collection layout behave */
+.collection-layout .product-card {
+    /* Grid items don't need flex properties */
+    flex: none; 
+}

@@ -544,3 +544,170 @@ a:hover {
     /* Grid items don't need flex properties */
     flex: none; 
 }
+/* ========================================= */
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+/* ========================================= */
+
+/* Tablet (Screens up to 1024px) */
+@media (max-width: 1024px) {
+    .main-header {
+        padding: 20px 40px;
+    }
+    
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 0.85rem;
+    }
+    
+    /* Hero Section Adjustments */
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    /* Founder Section - Stack on smaller tablets if necessary, but keep two columns for now */
+    .founders-grid {
+        gap: 40px;
+    }
+
+    /* Vision Section Adjustments */
+    .vision-section {
+        flex-direction: column;
+        padding: 80px 40px;
+    }
+    .vision-content {
+        margin-right: 0;
+        margin-bottom: 40px;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    /* Featured Products (Index Page) - Keep 3 columns, but reduce padding */
+    .featured-section, .full-product-grid {
+        padding: 80px 40px;
+    }
+
+    /* Collection Page Grid - Switch to 3 columns on tablet (instead of 4) */
+    .product-grid.collection-layout {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Footer Adjustments */
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 40px;
+    }
+    .footer-col {
+        flex: 1 1 45%; /* Allow columns to wrap */
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Mobile (Screens up to 768px) */
+@media (max-width: 768px) {
+    /* Header - Stack elements or simplify */
+    .main-header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .nav-links {
+        order: 2; /* Move links below logo */
+        margin-top: 15px;
+    }
+    .nav-icons {
+        order: 1;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    .nav-links a {
+        display: block; /* Stack links vertically */
+        margin: 5px 0;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        height: 70vh;
+    }
+    .hero-content {
+        padding: 30px;
+    }
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    /* Founders Section - Stack Vertically */
+    .founders-section {
+        padding: 60px 20px;
+    }
+    .founders-grid {
+        flex-direction: column; /* Stack founders */
+        gap: 60px;
+        margin-top: 30px;
+    }
+    .founder-card {
+        flex: 1 1 100%;
+    }
+    .founder-bio {
+        text-align: center;
+    }
+
+    /* Product Grids (Featured and Collection) - Single Column */
+    .featured-section, .full-product-grid {
+        padding: 40px 20px;
+    }
+    .product-grid {
+        /* Standard product grid (index page) and Collection layout both become single column */
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    /* Override grid for mobile: 1 column */
+    .product-grid.collection-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Footer - Stack Vertically */
+    .main-footer {
+        padding: 40px 20px;
+    }
+    .footer-links {
+        flex-direction: column;
+        padding: 0;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-col {
+        flex: 1 1 100%;
+    }
+    .newsletter input, .newsletter button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+/* Tablet (Screens up to 1024px) */
+@media (max-width: 1024px) {
+    /* ... other tablet rules ... */
+    
+    /* Collection Page Grid - Switch to 3 columns on tablet (instead of 4) */
+    .product-grid.collection-layout {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+    
+    /* ... other tablet rules ... */
+}
+/* Mobile (Screens up to 768px) */
+@media (max-width: 768px) {
+    /* ... other mobile rules ... */
+
+    /* Override grid for mobile: 1 column */
+    .product-grid.collection-layout {
+        grid-template-columns: 1fr; /* 1 item per row */
+        gap: 40px;
+    }
+    
+    /* ... other mobile rules ... */
+}

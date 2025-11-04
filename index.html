@@ -109,8 +109,7 @@
         </section>
 
     </main>
-
-    <footer class="main-footer">
+<footer class="main-footer">
   <div class="footer-links">
     <div class="footer-col">
       <p class="col-title">CUSTOMER SERVICE</p>
@@ -157,7 +156,7 @@
   <p class="copyright">&copy; 2025 LUU'S EXCELLENCE. All Rights Reserved.</p>
 </footer>
 
-<!-- Add this script just before the closing </body> -->
+<!-- Add this script just before </body> -->
 <script>
   const toggle = document.getElementById("shipping-toggle");
   const info = document.getElementById("shipping-info");
@@ -168,17 +167,18 @@
   });
 </script>
 
-<!-- Add this CSS to your stylesheet -->
+<!-- Add this CSS -->
 <style>
   .shipping-info {
-    background-color: #fff8dc; /* soft yellow highlight */
-    color: #333;
-    padding: 10px 15px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 12px 16px;
     margin-top: 8px;
-    border-left: 4px solid #d97706; /* warm amber accent */
-    border-radius: 6px;
+    border: 1px solid #fff; /* White border */
+    border-radius: 8px;
     font-size: 0.9rem;
     line-height: 1.5;
+    transition: all 0.3s ease;
   }
 
   .hidden {
@@ -189,16 +189,30 @@
     cursor: pointer;
     display: inline-block;
     margin-bottom: 5px;
+    transition: color 0.3s ease;
   }
 
   #shipping-toggle:hover {
+    color: #999;
     text-decoration: underline;
   }
+
+  /* Optional: smooth fade-in */
+  .shipping-info:not(.hidden) {
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
+
     <script src="script.js"></script>
 </body>
 
 </html>
+
 
 
 

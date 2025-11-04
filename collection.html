@@ -89,37 +89,118 @@
 
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-links">
-            <div class="footer-col">
-                <p class="col-title">CUSTOMER SERVICE</p>
-                <a href="#">FAQs</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="footer-col">
-                <p class="col-title">COMPANY</p>
-                <a href="#vision">Our Heritage</a>
-                <a href="#">Careers</a>
-                <a href="#">Privacy Policy</a>
-            </div>
-            <div class="footer-col newsletter">
-                <p class="col-title">JOIN OUR MAILING LIST</p>
-                <input type="email" placeholder="Enter your email address">
-                <button>SUBSCRIBE</button>
-                <div class="social-icons">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                </div>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2025 LUU'S EXCELLENCE. All Rights Reserved.</p>
-    </footer>
+   <footer class="main-footer">
+  <div class="footer-links">
+    <div class="footer-col">
+      <p class="col-title">CUSTOMER SERVICE</p>
+
+      <!-- Shipping dropdown -->
+      <a href="#" id="shipping-toggle">Shipping</a>
+      <div id="shipping-info" class="shipping-info hidden">
+        <p>
+          <strong>Please note:</strong><br>
+          Our products are made with exceptional care and undergo quality checks before dispatch. 
+          As part of our commitment to exclusivity and hygiene, we are unable to accept 
+          returns or exchanges.
+        </p>
+      </div>
+
+      <a href="#">FAQs</a>
+      <a href="#">Contact Us</a>
+
+      <p class="contact-info">
+        📞 Lungile Ndlovu: <a href="tel:0677190606">067 719 0606</a><br>
+        📞 Israel Ndlovu: <a href="tel:0736561956">073 656 1956</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <p class="col-title">COMPANY</p>
+      <a href="#vision">Our Heritage</a>
+      <a href="#">Careers</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-col newsletter">
+      <p class="col-title">JOIN OUR MAILING LIST</p>
+      <input type="email" placeholder="Enter your email address">
+      <button>SUBSCRIBE</button>
+      <div class="social-icons">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+    </div>
+  </div>
+
+  <p class="copyright">&copy; 2025 LUU'S EXCELLENCE. All Rights Reserved.</p>
+</footer>
+
+<!-- Add this script just before </body> -->
+<script>
+  const toggle = document.getElementById("shipping-toggle");
+  const info = document.getElementById("shipping-info");
+
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    info.classList.toggle("hidden");
+  });
+</script>
+
+<!-- Add this CSS -->
+<style>
+  .shipping-info {
+    background-color: #000; /* Entire background black */
+    color: #fff; /* White text */
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #fff; /* Thin white outline */
+    text-align: center;
+    font-size: 0.95rem;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+  }
+
+  .shipping-info p {
+    margin: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #shipping-toggle {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  #shipping-toggle:hover {
+    color: #aaa;
+    text-decoration: underline;
+  }
+
+  /* Fade-in effect for smoothness */
+  .shipping-info:not(.hidden) {
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
 
     <script src="script.js"></script>
 </body>
 
 </html>
+
 
 
 

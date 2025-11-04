@@ -114,13 +114,23 @@
   <div class="footer-links">
     <div class="footer-col">
       <p class="col-title">CUSTOMER SERVICE</p>
-      <a href="#">Shipping & Returns</a>
+
+      <!-- Shipping dropdown -->
+      <a href="#" id="shipping-toggle">Shipping</a>
+      <div id="shipping-info" class="shipping-info hidden">
+        <p>
+          <strong>Please note:</strong><br>
+          Our products are made with exceptional care and undergo quality checks before dispatch. 
+          As part of our commitment to exclusivity and hygiene, we are unable to accept 
+          returns or exchanges.
+        </p>
+      </div>
+
       <a href="#">FAQs</a>
       <a href="#">Contact Us</a>
+
       <p class="contact-info">
-          📞 Lungile Ndlovu: <a href="tel:0677190606">067 719 0606</a>
-        
-          <br>
+        📞 Lungile Ndlovu: <a href="tel:0677190606">067 719 0606</a><br>
         📞 Israel Ndlovu: <a href="tel:0736561956">073 656 1956</a>
       </p>
     </div>
@@ -143,14 +153,53 @@
       </div>
     </div>
   </div>
+
   <p class="copyright">&copy; 2025 LUU'S EXCELLENCE. All Rights Reserved.</p>
 </footer>
 
+<!-- Add this script just before the closing </body> -->
+<script>
+  const toggle = document.getElementById("shipping-toggle");
+  const info = document.getElementById("shipping-info");
 
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    info.classList.toggle("hidden");
+  });
+</script>
+
+<!-- Add this CSS to your stylesheet -->
+<style>
+  .shipping-info {
+    background-color: #fff8dc; /* soft yellow highlight */
+    color: #333;
+    padding: 10px 15px;
+    margin-top: 8px;
+    border-left: 4px solid #d97706; /* warm amber accent */
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #shipping-toggle {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  #shipping-toggle:hover {
+    text-decoration: underline;
+  }
+</style>
     <script src="script.js"></script>
 </body>
 
 </html>
+
 
 
 

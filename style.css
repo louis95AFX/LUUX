@@ -797,20 +797,4 @@ a:hover {
 }/* Add this to your style.css file */
 .nav-links a .fa-home {
     margin-right: 5px; /* Adds space after the icon */
-
-}
-.contact-info {
-  margin-top: 0.8rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #ddd;
-}
-
-.contact-info a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
 }

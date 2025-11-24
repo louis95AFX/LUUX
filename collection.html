@@ -92,11 +92,36 @@
     <footer class="main-footer">
         <div class="footer-links">
             <div class="footer-col">
-                <p class="col-title">CUSTOMER SERVICE</p>
-                <a href="#">Shipping & Returns</a>
-                <a href="#">FAQs</a>
-                <a href="#">Contact Us</a>
-            </div>
+    <p class="col-title">CUSTOMER SERVICE</p>
+
+    <!-- Shipping & Returns Toggle -->
+    <p 
+        onclick="toggleRefundPolicy()" 
+        style="cursor:pointer; color:white; margin-bottom:8px;"
+    >
+        Shipping & Returns ▼
+    </p>
+
+    <!-- Hidden Dropdown -->
+    <div 
+        id="refundPolicy" 
+        style="
+            display:none;
+            background:#111;
+            padding:10px 15px;
+            border-left:3px solid white;
+            margin-bottom:10px;
+            color:#ccc;
+            border-radius:6px;
+        "
+    >
+        <p style="margin:0;">NO refund Policy</p>
+    </div>
+
+    <a href="#">FAQs</a>
+    <a href="#">Contact Us</a>
+</div>
+
             <div class="footer-col">
                 <p class="col-title">COMPANY</p>
                 <a href="#vision">Our Heritage</a>
@@ -107,6 +132,7 @@
                 <p class="col-title">JOIN OUR MAILING LIST</p>
                 <input type="email" placeholder="Enter your email address">
                 <button>SUBSCRIBE</button>
+
                 <div class="social-icons">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-facebook-f"></i>
@@ -114,9 +140,19 @@
                 </div>
             </div>
         </div>
-        <p class="copyright">&copy; 2025 LUUX EXCELLENCE. All Rights Reserved.</p>
+
+        <p class="copyright">
+            &copy; 2025 LUUS EXCELLENCE. All Rights Reserved.
+        </p>
     </footer>
+<script>
+function toggleRefundPolicy() {
+    let box = document.getElementById("refundPolicy");
+    box.style.display = (box.style.display === "none") ? "block" : "none";
+}
+</script>
 
     <script src="script.js"></script>
 </body>
+
 </html>

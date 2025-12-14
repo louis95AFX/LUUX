@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUU'S EXCELLENCE - Timeless Luxury Pieces</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="item27.jpeg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS for the Announcement Bar - You should ideally move this to style.css */
+        .announcement-bar {
+            background-color: #000000; /* Black background to match the theme */
+            color: #ffffff; /* White text */
+            text-align: center;
+            padding: 8px 0; /* Vertical padding */
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <div class="announcement-bar">
+        We deliver all over South Africa
+    </div>
     <header class="main-header">
         <div class="logo">
         <img src="item27.jpeg" alt="LUU'S EXCELLENCE Logo" style="height:85px; object-fit:contain;">
@@ -26,7 +43,6 @@
 
     <main>
 
-        <!-- HERO SECTION -->
         <section class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">Timeless Craftsmanship.</h1>
@@ -42,7 +58,6 @@
             </div>
         </section>
 
-        <!-- FOUNDERS SECTION -->
         <section class="founders-section" id="about-us">
             <h2 class="section-heading">MEET THE FOUNDERS</h2>
             <div class="founders-grid">
@@ -54,7 +69,7 @@
                     <h3 class="founder-name">Lungile Ndlovu</h3>
                     <p class="founder-title">Creative Director</p>
                     <p class="founder-bio">
-                        Lungile Ndlovu is a resilient entrepreneur, wife, and mother...
+Lungile Ndlovu is a resilient entrepreneur, wife, and mother who embodies grace, strength, and purpose. With a background in Law and Media, she brings a unique blend of strategic thinking and storytelling to her brand. After overcoming a life-changing brain injury, Lungile has dedicated herself to holistic healing, personal growth, and empowering others to live with confidence and intention. Through her work and lifestyle, she inspires balance, elegance, and unwavering belief in one’s destined success.
                     </p>
                 </div>
 
@@ -65,14 +80,13 @@
                     <h3 class="founder-name">Israel Ndlovu</h3>
                     <p class="founder-title">Co-Founder & Brand Strategist</p>
                     <p class="founder-bio">
-                        Israel Ndlovu is a visionary brand strategist...
+Israel Ndlovu is a visionary brand strategist and creative thinker with a strong background in business development and digital branding. As Co-Founder of the brand, he brings strategic insight, innovation, and a results-driven mindset to every project. Israel is passionate about helping individuals and businesses build meaningful brands that connect deeply with their audiences. His leadership, discipline, and commitment to excellence reflect a clear purpose — to create brands that stand the test of time.
                     </p>
                 </div>
 
             </div>
         </section>
 
-        <!-- VISION SECTION -->
         <section class="vision-section" id="vision">
             <div class="vision-content">
                 <h2 class="vision-title">Our VISION.</h2>
@@ -88,7 +102,6 @@
             </div>
         </section>
 
-        <!-- SIGNATURE COLLECTION -->
         <section class="featured-section" id="collection">
             <h2 class="section-heading">The Signature Collection</h2>
 
@@ -97,28 +110,36 @@
                     <div class="product-image"><img src="item1.jpg" class="product-img"></div>
                     <p class="product-name">The Lumina Tote</p>
                     <p class="product-price">R3,500</p>
-                    <button class="view-details-btn">View Details</button>
-                </div>
+                    <button class="view-details-btn" 
+                        onclick="openModal('The Lumina Tote', 'R3,500', 'item1.jpg', 'The Lumina Tote is crafted from premium Italian leather, featuring a minimalist structure and a spacious interior. It is the perfect everyday piece, blending timeless style with unparalleled function.')">
+                        View Details
+                    </button>
+                    </div>
 
                 <div class="product-card">
                     <div class="product-image"><img src="item10.jpg" class="product-img"></div>
                     <p class="product-name">The Opulence Quilted</p>
                     <p class="product-price">R4,100</p>
-                    <button class="view-details-btn">View Details</button>
-                </div>
+                    <button class="view-details-btn" 
+                        onclick="openModal('The Opulence Quilted', 'R4,100', 'item10.jpg', 'This iconic quilted shoulder bag embodies classic elegance. Made with soft lambskin and finished with a bespoke gold chain strap, it is a statement piece for any evening.')">
+                        View Details
+                    </button>
+                    </div>
 
                 <div class="product-card">
                     <div class="product-image"><img src="item14.jpg" class="product-img"></div>
                     <p class="product-name">The Hand Pièce</p>
                     <p class="product-price">R4,950</p>
-                    <button class="view-details-btn">View Details</button>
-                </div>
+                    <button class="view-details-btn" 
+                        onclick="openModal('The Hand Pièce', 'R4,950', 'item14.jpg', 'A structured top-handle bag featuring exotic skin detailing. Its compact size belies its sophisticated interior organization, making it ideal for the discerning collector.')">
+                        View Details
+                    </button>
+                    </div>
 
             </div>
         </section>
 
-        <!-- ⭐⭐⭐⭐⭐ REVIEW SECTION (INLINE CSS ONLY) -->
-       <section 
+        <section 
     style="
         padding: 60px 20px; 
         background-color: #000000; 
@@ -138,7 +159,6 @@
         What Our Customers Say
     </h2>
 
-    <!-- ADD REVIEW BUTTON -->
     <button 
         onclick="document.getElementById('reviewForm').style.display='block';"
         style="
@@ -155,7 +175,6 @@
         + Add Review
     </button>
 
-    <!-- HIDDEN REVIEW FORM -->
     <div 
         id="reviewForm"
         style="
@@ -190,7 +209,6 @@
             Rating:
         </label>
 
-        <!-- STAR RATING SELECT -->
         <select 
             id="reviewStars"
             style="
@@ -237,112 +255,84 @@
             flex-wrap: wrap;
         "
     >
-
-        <!-- Review Card 1 -->
-        <div 
-            style="
-                background: #111; 
-                padding: 25px; 
-                border-radius: 12px; 
-                width: 300px;
-                box-shadow: 0 6px 20px rgba(255,255,255,0.1);
-                text-align: left;
-                border: 1px solid #222;
-            "
-        >
-            <p style="font-size: 16px; line-height: 1.6; color: #ddd;">
-                “Absolutely stunning craftsmanship. The quality is unmatched.”
-            </p>
-            <p style="margin-top: 10px; font-weight: bold; color: white;">— Amanda S.</p>
-            <p style="color: gold; margin-top: 5px;">★★★★★</p>
         </div>
-
-        <!-- Review Card 2 -->
-        <div 
-            style="
-                background: #111; 
-                padding: 25px; 
-                border-radius: 12px; 
-                width: 300px;
-                box-shadow: 0 6px 20px rgba(255,255,255,0.1);
-                text-align: left;
-                border: 1px solid #222;
-            "
-        >
-            <p style="font-size: 16px; line-height: 1.6; color: #ddd;">
-                “Elegance and luxury in every detail. I’m obsessed!”
-            </p>
-            <p style="margin-top: 10px; font-weight: bold; color: white;">— Lerato M.</p>
-            <p style="color: gold; margin-top: 5px;">★★★★★</p>
-        </div>
-
-        <!-- Review Card 3 -->
-        <div 
-            style="
-                background: #111; 
-                padding: 25px; 
-                border-radius: 12px; 
-                width: 300px;
-                box-shadow: 0 6px 20px rgba(255,255,255,0.1);
-                text-align: left;
-                border: 1px solid #222;
-            "
-        >
-            <p style="font-size: 16px; line-height: 1.6; color: #ddd;">
-                “The best investment I’ve made. Premium quality!”
-            </p>
-            <p style="margin-top: 10px; font-weight: bold; color: white;">— Nicole K.</p>
-            <p style="color: gold; margin-top: 5px;">★★★★★</p>
-        </div>
-
-    </div>
 </section>
-
-<script>
-function submitReview() {
-    let text = document.getElementById("reviewText").value;
-    let stars = document.getElementById("reviewStars").value;
-
-    if (text.trim() === "") {
-        alert("Please write a review first.");
-        return;
-    }
-
-    // Create new review card
-    let card = `
-        <div style="
-            background:#111;
-            padding:25px;
-            border-radius:12px;
-            width:300px;
-            box-shadow:0 6px 20px rgba(255,255,255,0.1);
-            text-align:left;
-            border:1px solid #222;
-        ">
-            <p style="font-size:16px; line-height:1.6; color:#ddd;">“${text}”</p>
-            <p style="margin-top:10px; font-weight:bold; color:white;">— Anonymous</p>
-            <p style="color:gold; margin-top:5px;">${stars}</p>
-        </div>
-    `;
-
-    document.getElementById("reviewContainer").innerHTML += card;
-
-    // Hide form + reset fields
-    document.getElementById("reviewForm").style.display = "none";
-    document.getElementById("reviewText").value = "";
-}
-</script>
 
 
     </main>
+    
+    <div id="productModal" style="
+        display: none; 
+        position: fixed; 
+        z-index: 1000; 
+        left: 0; 
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0,0,0,0.9);
+        padding-top: 60px; 
+        backdrop-filter: blur(5px);
+    ">
+        <div style="
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 30px;
+            position: relative;
+        ">
+            <span onclick="closeModal()" style="
+                position: absolute;
+                top: 15px;
+                right: 25px;
+                color: #000;
+                font-size: 30px;
+                font-weight: bold;
+                cursor: pointer;
+            ">&times;</span>
 
-    <!-- FOOTER -->
+            <div style="flex: 1 1 350px;">
+                <img id="modalProductImage" src="" alt="Product Image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+
+            <div style="flex: 1 1 350px; padding: 10px;">
+                <h2 id="modalProductName" style="
+                    font-family: 'Playfair Display', serif; 
+                    font-size: 32px; 
+                    margin-top: 0; 
+                    color: #000;
+                ">Product Name</h2>
+                
+                <p id="modalProductPrice" style="
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 20px; 
+                    color: #555; 
+                    font-weight: 700;
+                ">Price</p>
+
+                <p id="modalProductDescription" style="
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 16px; 
+                    line-height: 1.6;
+                    margin-top: 20px;
+                    color: #333;
+                ">Description...</p>
+
+            </div>
+        </div>
+    </div>
     <footer class="main-footer">
         <div class="footer-links">
             <div class="footer-col">
     <p class="col-title">CUSTOMER SERVICE</p>
 
-    <!-- Shipping & Returns Toggle -->
     <p 
         onclick="toggleRefundPolicy()" 
         style="cursor:pointer; color:white; margin-bottom:8px;"
@@ -350,7 +340,6 @@ function submitReview() {
         Shipping & Returns 
     </p>
 
-    <!-- Hidden Dropdown -->
     <div 
         id="refundPolicy" 
         style="
@@ -393,17 +382,199 @@ function submitReview() {
             &copy; 2025 LUU'S EXCELLENCE. All Rights Reserved.
         </p>
     </footer>
-<script>
-function toggleRefundPolicy() {
-    let box = document.getElementById("refundPolicy");
-    box.style.display = (box.style.display === "none") ? "block" : "none";
-}
-</script>
 
-    <script src="script.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+    
+    <script>
+        // ⚙️ Configuration
+        const SUPABASE_URL = 'https://qvixtdbmxzdsrkmgehrv.supabase.co'; 
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aXh0ZGJteHpkc3JrbWdlaHJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNjgwMTEsImV4cCI6MjA3OTY0NDAxMX0.sIljGo1502j_XubqqQ4K98MuzA5ZkXy9lVgV1qB_mzI'; 
+        const TABLE_NAME = 'reviews';
+        const DISPLAY_COUNT = 3; 
+
+        // CRITICAL FIX: Use 'let' for the client and set it to null initially
+        let supabase = null;
+    
+        /**
+         * Function to initialize the client, called after the DOM loads.
+         */
+        function initializeSupabase() {
+            if (window.supabase) {
+                // Initialize the client using the globally loaded library object
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                
+                // Now that the client is initialized, fetch the reviews
+                fetchAndDisplayReviews();
+            } else {
+                console.error("Supabase library not loaded. Cannot initialize.");
+            }
+        }
+
+        /**
+         * Helper function to toggle the visibility of the refund policy.
+         */
+        function toggleRefundPolicy() {
+            let box = document.getElementById("refundPolicy");
+            box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+        }
+        
+        // START: NEW MODAL FUNCTIONS ADDED
+        /**
+         * Functions for the Product Detail Modal
+         */
+        function openModal(name, price, imageSrc, description) {
+            // 1. Get the modal and its content elements
+            const modal = document.getElementById('productModal');
+            
+            // 2. Populate the content
+            document.getElementById('modalProductName').innerText = name;
+            document.getElementById('modalProductPrice').innerText = price;
+            document.getElementById('modalProductImage').src = imageSrc;
+            document.getElementById('modalProductDescription').innerText = description;
+            
+            // 3. Display the modal
+            modal.style.display = 'block';
+
+            // 4. Close modal when clicking outside (optional, but good UX)
+            modal.onclick = function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+        // END: NEW MODAL FUNCTIONS ADDED
+
+
+        /**
+         * Helper function to generate the HTML for a single review card.
+         */
+        function createReviewCardHTML(review) {
+            // Ensure the columns match your database exactly (review_text, stars, user_name)
+            const name = review.user_name || 'Anonymous'; 
+            
+            return `
+                <div style="
+                    background: #111; 
+                    padding: 25px; 
+                    border-radius: 12px; 
+                    width: 300px;
+                    box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+                    text-align: left;
+                    border: 1px solid #222;
+                ">
+                    <p style="font-size: 16px; line-height: 1.6; color: #ddd;">
+                        “${review.review_text}”
+                    </p>
+                    <p style="margin-top: 10px; font-weight: bold; color: white;">— ${name}</p>
+                    <p style="color: gold; margin-top: 5px;">${review.stars}</p>
+                </div>
+            `;
+        }
+    
+        /**
+         * Fetches reviews dynamically from Supabase and rotates them hourly.
+         */
+        async function fetchAndDisplayReviews() {
+            if (!supabase) {
+                return;
+            }
+            
+            const container = document.getElementById('reviewContainer');
+            container.innerHTML = '<p style="color:white;">Loading reviews...</p>';
+    
+            // 1. Calculate the rotation seed (changes every hour)
+            const date = new Date();
+            const hourlySeed = Math.floor(date.getTime() / (1000 * 60 * 60)); 
+            
+            // 2. Fetch a pool of recent reviews (e.g., the last 100)
+            const { data: reviews, error } = await supabase
+                .from(TABLE_NAME)
+                .select('review_text, stars, user_name') 
+                .order('created_at', { ascending: false })
+                .limit(100); 
+    
+            if (error) {
+                console.error('Error fetching reviews:', error.message);
+                container.innerHTML = '<p style="color:red;">Failed to load reviews.</p>';
+                return;
+            }
+    
+            if (!reviews || reviews.length === 0) {
+                container.innerHTML = '<p style="color:white;">Be the first to leave a review!</p>';
+                return;
+            }
+    
+            // 3. Implement hourly rotation and limit to DISPLAY_COUNT
+            const totalReviews = reviews.length;
+            const startIndex = hourlySeed % totalReviews; 
+    
+            let rotatingReviews = [];
+            for (let i = 0; i < DISPLAY_COUNT; i++) {
+                const reviewIndex = (startIndex + i) % totalReviews;
+                rotatingReviews.push(reviews[reviewIndex]);
+            }
+    
+            // 4. FINAL RENDERING FIX: Use map and join for efficient HTML rendering
+            const reviewHTML = rotatingReviews.map(review => {
+                return createReviewCardHTML(review); 
+            }).join('');
+    
+            container.innerHTML = reviewHTML;
+        }
+
+        /**
+         * Handles the submission of the review form and saves it to Supabase.
+         */
+        async function submitReview() {
+            if (!supabase) {
+                alert("System not initialized. Please refresh the page.");
+                return;
+            }
+            
+            const reviewTextElement = document.getElementById('reviewText');
+            const reviewStarsElement = document.getElementById('reviewStars');
+            const formElement = document.getElementById('reviewForm');
+    
+            const reviewText = reviewTextElement.value.trim();
+            const stars = reviewStarsElement.value;
+    
+            if (!reviewText) {
+                alert('Please write your review before submitting!');
+                return;
+            }
+    
+            const reviewData = {
+                review_text: reviewText,
+                stars: stars 
+            };
+    
+            const { error } = await supabase
+                .from(TABLE_NAME)
+                .insert([reviewData]);
+    
+            if (error) {
+                console.error('Error submitting review:', error.message);
+                alert('Failed to submit review. Check the console for details.');
+            } else {
+                alert('Thank you for your review! It has been submitted.');
+                
+                // Clear form, hide it
+                reviewTextElement.value = '';
+                reviewStarsElement.selectedIndex = 0;
+                formElement.style.display = 'none';
+                
+                // Refresh the displayed reviews to show the new one
+                fetchAndDisplayReviews(); 
+            }
+        }
+    
+        // Execute the initialization when the entire document is loaded
+        document.addEventListener('DOMContentLoaded', initializeSupabase);
+    </script>
+
+    </body>
 </html>
-
-
-
-

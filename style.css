@@ -797,4 +797,198 @@ a:hover {
 }/* Add this to your style.css file */
 .nav-links a .fa-home {
     margin-right: 5px; /* Adds space after the icon */
+}@media (max-width: 480px) {
+    .product-actions {
+        flex-direction: column;
+    }
+}
+
+
+/* --- SIGNATURE COLLECTION STYLING --- */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 60px 30px; /* Generous vertical spacing for a luxury feel */
+    padding: 40px 5%;
+}
+
+.product-card {
+    background: transparent;
+    transition: transform 0.3s ease;
+}
+
+/* 1. Image Styling */
+.product-image-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 5; /* Elegant portrait ratio */
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #111;
+    margin-bottom: 15px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 2. Hover Effects */
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Subtle dimming */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.quick-view-btn {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+/* 3. Typography */
+.product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #ffffff;
+    margin: 5px 0;
+    letter-spacing: 0.5px;
+}
+
+.product-price {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #c5a059; /* Champagne Gold */
+    font-weight: 300;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* 4. Elegant Button */
+.add-to-cart-btn {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 14px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* Container for Qty and Add Button */
+.product-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Luxury Qty Selector */
+.qty-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #333;
+    background: transparent;
+    height: 40px;
+    width: 100px;
+}
+
+.qty-input button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.qty-input button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.qty-input input {
+    width: 40px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    outline: none;
+    /* Hide arrows */
+    -moz-appearance: textfield;
+}
+
+.qty-input input::-webkit-outer-spin-button,
+.qty-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.color-selector {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.color-chip {
+    cursor: pointer;
+}
+
+.color-chip input {
+    display: none; /* Hide the radio button */
+}
+
+.color-chip span {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.color-chip input:checked + span {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #000;
+    font-weight: bold;
 }

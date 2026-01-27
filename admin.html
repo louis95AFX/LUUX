@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | LUU'S EXCELLENCE</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        /* ... Keeping your existing base styles ... */
+        * { box-sizing: border-box; transition: all 0.2s ease-in-out; }
+        body { margin: 0; background: #000; color: #fff; font-family: 'Roboto', sans-serif; min-height: 100vh; padding-bottom: 40px; }
+        .admin-nav { background: #0e0e0e; border-bottom: 1px solid #2a2a2a; padding: 15px 40px; position: sticky; top: 0; z-index: 100; margin-bottom: 60px; }
+        .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 2px; color: #f3f1eb; }
+        .nav-right { display: flex; gap: 15px; align-items: center; }
+        .nav-link { text-decoration: none; color: #fff; font-size: 12px; font-weight: bold; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid #d4af37; border-radius: 40px; }
+        .nav-link:hover { background: #d4af37; color: #000; }
+        .logout-link { border-color: #444; color: #888; }
+        .logout-link:hover { background: #ff4444; border-color: #ff4444; color: #fff; }
+
+        .admin-container { display: flex; justify-content: center; align-items: center; padding: 0 20px; }
+        .admin-card { background: #0e0e0e; width: 100%; max-width: 480px; padding: 40px; border-radius: 18px; box-shadow: 0 20px 60px rgba(255, 255, 255, 0.05); border: 1px solid #1e1e1e; }
+        .admin-header { text-align: center; margin-bottom: 35px; }
+        .admin-header h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 8px; letter-spacing: 1px; }
+        .admin-header p { font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+
+        label { font-size: 11px; letter-spacing: 0.12em; color: #888; margin-bottom: 8px; display: block; text-transform: uppercase; }
+        input, textarea { width: 100%; background: #000; border: 1px solid #2a2a2a; border-radius: 8px; padding: 14px; color: white; margin-bottom: 20px; font-size: 14px; font-family: 'Roboto', sans-serif; }
+        input:focus, textarea:focus { outline: none; border-color: #d4af37; background: #050505; }
+
+        /* NEW COLOR TAG STYLES */
+        .color-input-wrapper { display: flex; gap: 10px; margin-bottom: 10px; }
+        .color-input-wrapper input { margin-bottom: 0; }
+        .add-tag-btn { width: auto; padding: 0 20px; margin-top: 0; background: #2a2a2a; color: #fff; }
+        
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            min-height: 30px;
+        }
+        
+        .tag {
+            background: #d4af37;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .tag span { cursor: pointer; font-size: 16px; line-height: 1; }
+
+        /* Original File & Button styles */
+        input[type="file"] { padding: 10px; cursor: pointer; border: 1px dashed #444; }
+        button { width: 100%; background: #fff; color: #000; border: none; padding: 16px; border-radius: 40px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #d4af37; transform: translateY(-2px); }
+        button:disabled { background: #333; cursor: not-allowed; transform: none; }
+        #status { margin-top: 20px; text-align: center; font-size: 14px; color: #d4af37; min-height: 20px; }
+        #imagePreview { width: 100%; max-height: 250px; object-fit: cover; margin-bottom: 20px; display: none; border-radius: 10px; border: 1px solid #2a2a2a; }
+    </style>
+</head>
+<body>
+
+<nav class="admin-nav">
+    <div class="nav-content">
+        <span class="brand">LUU'S EXCELLENCE</span>
+        <div class="nav-right">
+            <a href="products.html" class="nav-link">VIEW INVENTORY</a>
+            <a href="index.html" class="nav-link logout-link">LOGOUT</a>
+        </div>
+    </div>
+</nav>
+
+<div class="admin-container">
+    <div class="admin-card">
+        <div class="admin-header">
+            <h1>Product Panel</h1>
+            <p>Add New Creation</p>
+        </div>
+
+        <label for="name">Product Name</label>
+        <input id="name" type="text" placeholder="e.g. Midnight Silk Gown">
+
+        <label for="price">Price (ZAR)</label>
+        <input id="price" type="number" placeholder="4500">
+
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Crafted from the finest silk..." rows="3"></textarea>
+
+        <label>Available Colors</label>
+        <div class="color-input-wrapper">
+            <input id="colorInput" type="text" placeholder="Add a color (e.g. Gold)">
+            <button type="button" id="addColorBtn" class="add-tag-btn">+</button>
+        </div>
+        <div id="tagsContainer" class="tags-container"></div>
+
+        <label for="image">Upload Product Image</label>
+        <input type="file" id="image" accept="image/*">
+        <img id="imagePreview" alt="Image Preview">
+
+        <button id="saveBtn">SAVE PRODUCT</button>
+        <p id="status"></p>
+    </div>
+</div>
+
+<script>
+    const SUPABASE_URL = 'https://qvixtdbmxzdsrkmgehrv.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aXh0ZGJteHpkc3JrbWdlaHJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNjgwMTEsImV4cCI6MjA3OTY0NDAxMX0.sIljGo1502j_XubqqQ4K98MuzA5ZkXy9lVgV1qB_mzI';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const saveBtn = document.getElementById('saveBtn');
+    const imageInput = document.getElementById('image');
+    const imagePreview = document.getElementById('imagePreview');
+    const status = document.getElementById('status');
+    
+    // COLOR TAG LOGIC
+    const colorInput = document.getElementById('colorInput');
+    const addColorBtn = document.getElementById('addColorBtn');
+    const tagsContainer = document.getElementById('tagsContainer');
+    let selectedColors = [];
+
+    function renderTags() {
+        tagsContainer.innerHTML = '';
+        selectedColors.forEach((color, index) => {
+            const tag = document.createElement('div');
+            tag.className = 'tag';
+            tag.innerHTML = `${color} <span onclick="removeColor(${index})">&times;</span>`;
+            tagsContainer.appendChild(tag);
+        });
+    }
+
+    function addColor() {
+        const value = colorInput.value.trim();
+        if (value && !selectedColors.includes(value)) {
+            selectedColors.push(value);
+            colorInput.value = '';
+            renderTags();
+        }
+    }
+
+    function removeColor(index) {
+        selectedColors.splice(index, 1);
+        renderTags();
+    }
+
+    addColorBtn.addEventListener('click', addColor);
+    colorInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') addColor(); });
+
+    // IMAGE PREVIEW LOGIC
+    imageInput.addEventListener('change', () => {
+        const file = imageInput.files[0];
+        if (file) {
+            imagePreview.src = URL.createObjectURL(file);
+            imagePreview.style.display = 'block';
+        } else {
+            imagePreview.style.display = 'none';
+        }
+    });
+
+    // SAVE PRODUCT LOGIC
+    async function addProduct() {
+        const nameEl = document.getElementById('name');
+        const priceEl = document.getElementById('price');
+        const descEl = document.getElementById('description');
+        const file = imageInput.files[0];
+
+        if (!nameEl.value || !priceEl.value || !file) {
+            status.innerText = '❌ Error: Name, Price, and Image are required.';
+            return;
+        }
+
+        status.innerText = '⏳ Uploading to Luu\'s Excellence...';
+        saveBtn.disabled = true;
+
+        try {
+            const fileName = `${Date.now()}-${file.name.replace(/\s/g, '_')}`;
+            const { error: uploadError } = await supabaseClient.storage.from('products').upload(fileName, file);
+            if (uploadError) throw uploadError;
+
+            const { data: imageData } = supabaseClient.storage.from('products').getPublicUrl(fileName);
+            const imageUrl = imageData.publicUrl;
+
+            const { error: dbError } = await supabaseClient.from('products').insert([{
+                name: nameEl.value,
+                price: Number(priceEl.value),
+                description: descEl.value,
+                image_url: imageUrl,
+                colors: selectedColors // Using the array from our tags
+            }]);
+
+            if (dbError) throw dbError;
+
+            status.innerText = '✔ Product added successfully!';
+            
+            // Reset Form
+            [nameEl, priceEl, descEl, colorInput, imageInput].forEach(el => el.value = '');
+            selectedColors = [];
+            renderTags();
+            imagePreview.style.display = 'none';
+
+        } catch (err) {
+            status.innerText = '❌ Error: ' + err.message;
+        } finally {
+            saveBtn.disabled = false;
+        }
+    }
+
+    saveBtn.addEventListener('click', addProduct);
+</script>
+
+</body>
+</html>

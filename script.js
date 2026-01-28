@@ -272,6 +272,9 @@ function closeModal() {
     const modal = document.getElementById('productModal');
     if (modal) modal.style.display = 'none';
 }
-
+function toggleContact() {
+    const contact = document.getElementById("contactDropdown");
+    contact.style.display = contact.style.display === "none" ? "block" : "none";
+}
 // 🚀 Fire everything up
 document.addEventListener('DOMContentLoaded', initializeApp);

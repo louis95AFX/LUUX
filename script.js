@@ -277,4 +277,26 @@ function toggleContact() {
     contact.style.display = contact.style.display === "none" ? "block" : "none";
 }
 // 🚀 Fire everything up
+
 document.addEventListener('DOMContentLoaded', initializeApp);
+function toggleNavContact() {
+    const dropdown = document.getElementById("navContactDropdown");
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+}
+
+// Optional: Close the dropdown if user clicks anywhere else on the screen
+window.onclick = function(event) {
+    if (!event.target.matches('.nav-dropdown a')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+                openDropdown.style.display = "none";
+            }
+        }
+    }
+}

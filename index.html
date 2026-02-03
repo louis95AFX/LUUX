@@ -42,25 +42,28 @@
     </div>
                 <div class="logo">LUU'S EXCELLENCE</div>
              <nav class="nav-links">
-            <a href="collection.html">New Arrivals</a>
-            <a href="#featured">Luxury Pieces</a>
-            <a href="#vision">About</a>
-            <a href="#">Contact</a>
-            <a href="javascript:void(0)" onclick="toggleCart()" style="position: relative;">
-                <i class="fas fa-shopping-bag"></i>
-                <span id="cart-count" style="
-                    position: absolute;
-                    top: -8px;
-                    right: -10px;
-                    background: #fff;
-                    color: #000;
-                    border-radius: 50%;
-                    padding: 2px 6px;
-                    font-size: 10px;
-                    font-weight: bold;
-                ">0</span>
-            </a>
-        </nav>
+    <a href="collection.html">New Arrivals</a>
+    <a href="#featured">Luxury Pieces</a>
+    <a href="#vision">About</a>
+    
+    <div class="nav-dropdown">
+        <a href="javascript:void(0)" onclick="toggleNavContact()">Contact</a>
+        <div id="navContactDropdown" class="dropdown-content">
+            <p><strong>Lungile Ndlovu</strong><br>
+               <a href="tel:+27677190606">067 719 0606</a>
+            </p>
+            <hr style="border: 0; border-top: 1px solid #333; margin: 10px 0;">
+            <p><strong>Israel Ndlovu</strong><br>
+               <a href="tel:+27736561956">073 656 1956</a>
+            </p>
+        </div>
+    </div>
+
+    <a href="javascript:void(0)" onclick="toggleCart()" style="position: relative;">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cart-count">0</span>
+    </a>
+</nav>
             </header>
 
     <main>
@@ -449,5 +452,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
+
 
 </html>
